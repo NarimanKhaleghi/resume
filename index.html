@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nariman Khaleghi — Senior Product Manager</title>
+<meta name="description" content="Resume of Nariman Khaleghi — Senior Product Manager, FinTech &amp; Payments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+
+:root{
+  --bg:#e8ebf1;
+  --paper:#ffffff;
+  --text:#131720;
+  --muted:#5a6473;
+  --accent:#1d4ed8;
+  --soft:#f1f4fb;
+  --rule:#dfe4ee;
+  --shadow:0 12px 44px rgba(15,23,42,.16);
+}
+html[data-theme="dark"]{
+  --bg:#0a0c10;
+  --paper:#14171e;
+  --text:#e7eaf0;
+  --muted:#98a2b3;
+  --accent:#7ea6ff;
+  --soft:#1a1f2b;
+  --rule:#262c38;
+  --shadow:0 12px 44px rgba(0,0,0,.65);
+}
+
+html,body{margin:0;padding:0;}
+html[lang="en"] body{font-family:'Poppins',system-ui,-apple-system,sans-serif;}
+html[lang="fa"] body{font-family:'Vazirmatn',system-ui,-apple-system,sans-serif;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  padding:20px 0 55px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition:background .25s ease,color .25s ease;
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar{
+  position:fixed;
+  top:10px;
+  inset-inline-end:10px;
+  display:flex;
+  gap:6px;
+  z-index:99;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.toolbar button{
+  font:inherit;
+  font-size:10.5px;
+  font-weight:500;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid var(--rule);
+  background:var(--paper);
+  color:var(--text);
+  cursor:pointer;
+  box-shadow:0 3px 14px rgba(15,23,42,.12);
+  transition:transform .15s ease,color .15s ease,border-color .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  line-height:1;
+  white-space:nowrap;
+}
+.toolbar button:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+/* ---------- Paper (A4) ---------- */
+.paper{
+  width:210mm;
+  min-height:297mm;
+  margin:0 auto;
+  padding:7mm 9mm;
+  background:var(--paper);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  border-radius:3px;
+  font-size:7.85pt;
+  line-height:1.27;
+  transition:background .25s ease,color .25s ease;
+  text-rendering:optimizeLegibility;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+html[lang="fa"] .paper{
+  font-size:7.65pt;
+  line-height:1.5;
+}
+
+/* ============================================================
+   HEADER  —  2-column grid (name | contacts) + full-width meta
+   ============================================================ */
+.hdr{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-areas:
+    "name contacts"
+    "meta meta";
+  column-gap:20px;
+  row-gap:4px;
+  align-items:center;
+  padding-bottom:6px;
+  margin-bottom:7px;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.hdr::after{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  bottom:-1px;
+  width:58px;
+  height:2px;
+  background:var(--accent);
+  border-radius:2px;
+}
+
+.hdr-name{
+  grid-area:name;
+  min-width:0;
+}
+.hdr h1{
+  margin:0;
+  font-size:15.5pt;
+  font-weight:700;
+  letter-spacing:.03em;
+  line-height:1.05;
+  white-space:nowrap;
+}
+html[lang="fa"] .hdr h1{
+  font-size:13.5pt;
+  letter-spacing:0;
+}
+.hdr .role{
+  margin:2px 0 0;
+  font-size:8.4pt;
+  font-weight:500;
+  color:var(--accent);
+  line-height:1.22;
+  white-space:nowrap;
+}
+html[lang="fa"] .hdr .role{font-size:8.3pt;}
+
+.hdr-contacts{
+  grid-area:contacts;
+  display:flex;
+  flex-direction:column;
+  gap:1.5px;
+  align-items:flex-end;
+  min-width:0;
+}
+.hdr-line{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:0 14px;
+  font-size:7.5pt;
+  color:var(--muted);
+  line-height:1.4;
+}
+html[lang="fa"] .hdr-line{font-size:7.45pt;line-height:1.55;}
+
+.hdr-meta{
+  grid-area:meta;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0 16px;
+  padding-top:3px;
+  margin-top:1px;
+  border-top:1px dashed var(--rule);
+  font-size:7.5pt;
+  color:var(--muted);
+  line-height:1.4;
+}
+html[lang="fa"] .hdr-meta{font-size:7.45pt;line-height:1.55;}
+
+/* Each item: icon + text, always LTR internally → icon stays left of text
+   in BOTH languages, so nothing flips or gets displaced. */
+.hdr-item{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  direction:ltr;
+  unicode-bidi:isolate;
+  min-width:0;
+}
+.hdr-item svg{
+  width:8.5px;
+  height:8.5px;
+  flex:0 0 auto;
+  color:var(--accent);
+  opacity:.9;
+}
+.hdr-item a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:color .15s ease,border-color .15s ease;
+}
+.hdr-item a:hover{
+  color:var(--accent);
+  border-bottom-color:currentColor;
+}
+
+/* ---------- Sections ---------- */
+.sec{margin-bottom:5.5px;}
+.sec:last-child{margin-bottom:0;}
+
+.sec-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 4px;
+  font-size:8.4pt;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--accent);
+  break-after:avoid;
+  page-break-after:avoid;
+}
+html[lang="fa"] .sec-title{
+  letter-spacing:0;
+  text-transform:none;
+  font-size:8.9pt;
+}
+.sec-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--rule);
+}
+
+/* ---------- Summary ---------- */
+.summary{
+  margin:0;
+  text-align:justify;
+  text-justify:inter-word;
+  background:var(--soft);
+  border-inline-start:3px solid var(--accent);
+  padding:5px 9px;
+  border-radius:4px;
+  font-size:.99em;
+  line-height:1.38;
+}
+html[lang="fa"] .summary{line-height:1.62;}
+
+/* ---------- Skills ---------- */
+.skills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 18px;
+}
+.skill{
+  break-inside:avoid;
+  page-break-inside:avoid;
+  text-align:justify;
+  text-justify:inter-word;
+  font-size:.95em;
+  line-height:1.42;
+  margin:0;
+}
+html[lang="fa"] .skill{line-height:1.66;font-size:.98em;}
+.skill b{
+  color:var(--accent);
+  font-weight:600;
+  font-size:.99em;
+}
+
+/* ---------- Experience ---------- */
+.job{
+  padding-bottom:4.5px;
+  margin-bottom:4.5px;
+  border-bottom:1px solid var(--rule);
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.job:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:0;
+}
+
+.job-head{
+  display:grid;
+  grid-template-columns:24px 1fr;
+  gap:7px;
+  align-items:start;
+  break-after:avoid;
+  page-break-after:avoid;
+  break-inside:avoid;
+}
+.job-logo{
+  width:24px;
+  height:24px;
+  border-radius:5px;
+  background:var(--soft);
+  border:1px solid var(--rule);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex:none;
+  margin-top:1px;
+}
+.job-logo img{
+  display:none;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.job-logo.has-logo img{display:block;}
+.job-logo.has-logo span{display:none;}
+.job-logo span{
+  font-size:8pt;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.01em;
+  line-height:1;
+}
+html[lang="fa"] .job-logo span{font-size:7.8pt;}
+
+.job-title-wrap{min-width:0;}
+.job-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  break-after:avoid;
+  page-break-after:avoid;
+}
+.job-role{
+  margin:0;
+  font-size:9pt;
+  font-weight:600;
+  line-height:1.2;
+  text-align:start;
+}
+html[lang="fa"] .job-role{font-size:9.2pt;}
+.job-date{
+  font-size:7.6pt;
+  font-weight:500;
+  color:var(--muted);
+  white-space:nowrap;
+  flex:none;
+}
+.job-org{
+  margin:1px 0 0;
+  font-size:8pt;
+  color:var(--muted);
+  text-align:justify;
+  text-justify:inter-word;
+  line-height:1.3;
+  break-after:avoid;
+  page-break-after:avoid;
+}
+html[lang="fa"] .job-org{font-size:7.9pt;line-height:1.46;}
+.job-scope{
+  margin:1px 0 0;
+  padding-inline-start:6px;
+  border-inline-start:2px solid var(--rule);
+  font-size:.93em;
+  font-style:italic;
+  color:var(--muted);
+  text-align:justify;
+  text-justify:inter-word;
+  line-height:1.32;
+  break-after:avoid;
+  page-break-after:avoid;
+}
+html[lang="fa"] .job-scope{font-style:normal;line-height:1.5;font-size:.96em;}
+
+.bullets{
+  list-style:none;
+  margin:2px 0 0;
+  padding:0;
+}
+.bullets li{
+  position:relative;
+  padding-inline-start:8px;
+  margin-bottom:1px;
+  text-align:justify;
+  text-justify:inter-word;
+  font-size:.965em;
+  line-height:1.33;
+  break-inside:avoid;
+  page-break-inside:avoid;
+  orphans:2;
+  widows:2;
+}
+html[lang="fa"] .bullets li{line-height:1.54;font-size:.985em;}
+.bullets li:last-child{margin-bottom:0;}
+.bullets li::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  top:.55em;
+  width:2.7px;
+  height:2.7px;
+  border-radius:50%;
+  background:var(--accent);
+  opacity:.62;
+}
+.bullets b{font-weight:600;}
+
+/* ---------- Education ---------- */
+.edu{display:grid;gap:2px;}
+.edu-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.edu-deg{font-size:.99em;line-height:1.28;text-align:justify;text-justify:inter-word;}
+.edu-deg b{font-weight:600;}
+.edu-date{
+  font-size:7.7pt;
+  color:var(--muted);
+  white-space:nowrap;
+  flex:none;
+  font-weight:500;
+}
+
+/* ---------- Print ---------- */
+@media print{
+  @page{size:A4;margin:7mm 9mm;}
+
+  html{
+    --bg:#ffffff;
+    --paper:#ffffff;
+    --text:#0b0d12;
+    --muted:#4a5261;
+    --accent:#1a3fb0;
+    --soft:#ffffff;
+    --rule:#c9ced8;
+  }
+  html[data-theme="dark"]{
+    --bg:#ffffff;
+    --paper:#ffffff;
+    --text:#0b0d12;
+    --muted:#4a5261;
+    --accent:#1a3fb0;
+    --soft:#ffffff;
+    --rule:#c9ced8;
+  }
+
+  html,body{background:#fff !important;color:#000;}
+  body{padding:0 !important;margin:0 !important;}
+  .toolbar{display:none !important;}
+
+  .paper{
+    width:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    background:#fff !important;
+  }
+
+  .summary{background:#fff !important;}
+  .sec-title{color:#1a3fb0 !important;}
+  .skill b{color:#1a3fb0 !important;}
+  .hdr .role{color:#1a3fb0 !important;}
+  .hdr-item svg{color:#1a3fb0 !important;}
+  .job-logo{background:#fff !important;border-color:#c9ced8 !important;}
+  .job-logo span{color:#1a3fb0 !important;}
+  a{color:inherit !important;text-decoration:none !important;}
+  p,li,div{orphans:2;widows:2;}
+
+  .job{break-inside:avoid;page-break-inside:avoid;}
+  .job-head,.job-org,.job-scope{break-after:avoid;page-break-after:avoid;}
+}
+
+@media screen and (max-width:900px){
+  body{padding-top:58px;}
+  .toolbar{
+    inset-inline-end:auto;
+    inset-inline-start:50%;
+    transform:translateX(-50%);
+    width:max-content;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="toolbar no-print">
+  <button id="langBtn" type="button" title="Change language / تغییر زبان">فارسی</button>
+  <button id="themeBtn" type="button" title="Toggle theme / تغییر تم">🌙 Dark</button>
+  <button id="pdfBtn" type="button" title="Save as PDF / ذخیره PDF">⤓ PDF</button>
+</div>
+
+<main class="paper" id="paper">
+
+  <!-- ============ HEADER ============ -->
+  <header class="hdr">
+
+    <div class="hdr-name">
+      <h1 data-fa="نریمان خالقی">NARIMAN KHALEGHI</h1>
+      <p class="role" data-fa="مدیر محصول ارشد &nbsp;|&nbsp; فین‌تک و پرداخت">Senior Product Manager &nbsp;|&nbsp; FinTech &amp; Payments</p>
+    </div>
+
+    <div class="hdr-contacts">
+
+      <div class="hdr-line">
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-fa="تهران، ایران">Tehran, Iran</span>
+        </span>
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+989355824252" data-fa="+۹۸ ۹۳۵ ۵۸۲ ۴۲۵۲">+98 935 582 4252</a>
+        </span>
+      </div>
+
+      <div class="hdr-line">
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          <a href="mailto:pm@thepm.ir">pm@thepm.ir</a>
+        </span>
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://thepm.ir" target="_blank" rel="noopener">thepm.ir</a>
+        </span>
+      </div>
+
+      <div class="hdr-line">
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>
+          <a href="https://linkedin.com/in/NarimanKhaleghi" target="_blank" rel="noopener">linkedin.com/in/NarimanKhaleghi</a>
+        </span>
+        <span class="hdr-item">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.4-3.88-1.4-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.68 5.4-5.24 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+          <a href="https://github.com/NarimanKhaleghi" target="_blank" rel="noopener">github.com/NarimanKhaleghi</a>
+        </span>
+      </div>
+
+    </div>
+
+    <div class="hdr-meta">
+      <span class="hdr-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-fa="وضعیت خدمت: معاف (معافیت تحصیلی)">Military status: Exempt (educational deferment)</span>
+      </span>
+      <span class="hdr-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span data-fa="زبان‌ها: فارسی (زبان مادری) · انگلیسی (Upper-Intermediate — خواندن حرفه‌ای و روان)">Languages: Persian (native) · English (Upper-Intermediate — fluent professional reading)</span>
+      </span>
+    </div>
+
+  </header>
+
+  <!-- ============ SUMMARY ============ -->
+  <section class="sec">
+    <h2 class="sec-title" data-fa="خلاصهٔ حرفه‌ای">Professional Summary</h2>
+    <p class="summary" data-fa="مدیر محصول ارشد با <strong>بیش از ۴ سال سابقه در مدیریت محصول</strong> و <strong>بیش از ۸ سال سابقه در کسب‌وکار دیجیتال</strong>؛ در حال حاضر مالک محصول <strong>PutLife — یک سوپراپلیکیشن فین‌تک با ۲ میلیون کاربر ثبت‌شده</strong> — در شرکت کارت اعتباری ایران کیش (زیرمجموعهٔ بانک تجارت) هستم. <strong>پنج محصول را از صفر تا یک</strong> عرضه کرده‌ام و <strong>محصولات دیجیتال</strong> را از <strong>استارتاپ تا پلتفرم‌های مقیاس ملی</strong> در حوزه‌های <strong>فین‌تک، مالیات، سفر، رسانه و تجارت الکترونیک</strong> به سرانجام رسانده‌ام — و <strong>در هر سازمانی که کار کرده‌ام ارتقا گرفته‌ام</strong>. متخصص در <strong>Product Discovery</strong>، <strong>اولویت‌بندی داده‌محور</strong> و تحویل <strong>Agile/Scrum</strong>؛ با توانایی ترجمهٔ <strong>نیازمندی‌های پیچیده</strong> به <strong>نتایج تجاری قابل اندازه‌گیری</strong>؛ پشتوانهٔ آن توانمندی کم‌یاب و کاملاً عملی در حوزهٔ هوش مصنوعی (LLMهای محلی، RAG، AI Agentها، <strong>اتوماسیون گردش‌کار با n8n</strong>، نمونه‌سازی MVP با کدنویسی مبتنی بر AI) و پروفایل <strong>ترکیبی کسب‌وکار–مهندسی</strong> است که استراتژی، بازاریابی، داده، کد و <strong>Solution Design</strong> را پوشش می‌دهد. در <strong>محیط‌های پرسرعت و مقررات‌محور</strong> رشد می‌کنم. تمرکز اصلی بر <strong>فین‌تک و پرداخت</strong> — آمادهٔ همکاری در هر صنعتی که محصولش را جدی بگیرد.">Senior Product Manager with <strong>4+ years in product management</strong> and <strong>8+ years in digital business</strong>, currently owning <strong>PutLife — a fintech super-app with 2M registered users</strong> at Iran Kish Credit Card Co. (Tejarat Bank subsidiary). Delivered <strong>five zero-to-one launches</strong>, shipping <strong>digital products</strong> from <strong>startups to national-scale platforms</strong> across <strong>fintech, tax-tech, travel, media and e-commerce</strong> — and earned <strong>a promotion in every organization</strong> I've worked for. Expert in <strong>product discovery</strong>, <strong>data-driven prioritization</strong> and <strong>Agile/Scrum</strong> delivery, translating complex <strong>requirements</strong> into <strong>measurable business outcomes</strong>; backed by a rare <strong>hands-on AI capability</strong> (local LLMs, RAG, AI agents, n8n <strong>workflow automation</strong>, vibe-coded MVP prototypes) and a <strong>business–engineering hybrid</strong> profile spanning strategy, marketing, data, code and <strong>solution design</strong>. Thrive in <strong>fast-paced, regulated environments</strong>. Primarily targeting <strong>fintech &amp; payments</strong> — open to any industry that takes its product seriously.</p>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="sec">
+    <h2 class="sec-title" data-fa="مهارت‌های کلیدی">Core Skills</h2>
+    <div class="skills">
+
+      <p class="skill" data-fa="<b>مدیریت محصول:</b> استراتژی و چشم‌انداز محصول · مدیریت چرخهٔ عمر محصول · Product Discovery · برنامه‌ریزی Roadmap · نیازسنجی و تحلیل نیازمندی‌ها · تدوین PRD · Epics، User Story و Acceptance Criteria · اولویت‌بندی ویژگی‌ها · User Research (نظرسنجی، مصاحبهٔ کاربری، Usability Testing) · Pain-Point Analysis · Hypothesis-Driven Experimentation و A/B Testing · CRO · تحلیل رقبا و بازار (TAM/SAM/SOM) · OKR · تعریف شاخص‌ها و KPI · Business Case Development · Business Analysis · Cohort و LTV Analysis"><b>Product Management:</b> Product Strategy &amp; Vision · Product Lifecycle Management · Product Discovery · Roadmap Planning · Requirements Gathering &amp; Analysis · PRD Writing · Epics, User Stories &amp; Acceptance Criteria · Feature Prioritization &amp; Delivery · User Research (Surveys, User Interviews, Usability Testing) · Pain-Point Analysis · Hypothesis-Driven Experimentation &amp; A/B Testing · CRO · Competitor &amp; Market Analysis (TAM/SAM/SOM) · OKRs · Metrics &amp; KPI Definition · Business Case Development · Business Analysis · Cohort &amp; LTV Analysis</p>
+
+      <p class="skill" data-fa="<b>داده و هوش مصنوعی:</b> تحلیل و بصری‌سازی داده (Excel/PivotTable، Power BI، GA4، Looker Studio، Google Tag Manager) · Statistics · داشبورد KPI · Cohort/Retention/LTV Tracking · پایگاه‌داده (SQL مقدماتی، Vector Database) · Python (تحلیل داده، Web Scraping، Data Mining، مبانی ML) · Generative AI و LLM (ChatGPT، Claude، LLM محلی با Ollama/LM Studio) · RAG Pipeline و AI Agent (Claude Code، Codex؛ تنظیم Tool و Skill) · اتوماسیون گردش‌کار با n8n · گردش‌کار محصول تقویت‌شده با AI (تدوین PRD، تحلیل نیازمندی و داده، تولید User Story) · نمونه‌سازی MVP با کدنویسی مبتنی بر AI"><b>Data &amp; AI:</b> Data Analysis &amp; Data Visualization (Excel/PivotTables, Power BI, GA4, Looker Studio, Google Tag Manager) · Statistics · KPI Dashboards · Cohort/Retention/LTV Tracking · Databases (basic SQL, vector databases) · Python (Data Analysis, Web Scraping, Data Mining, ML Fundamentals) · Generative AI &amp; LLMs (ChatGPT, Claude, local LLMs via Ollama/LM Studio) · RAG Pipelines &amp; AI Agents (Claude Code, Codex; agent tool &amp; skill configuration) · n8n Workflow Automation · AI-Augmented Product Workflows (PRD drafting, requirements &amp; data analysis, user-story generation) · Vibe-Coded MVP Prototyping</p>
+
+      <p class="skill" data-fa="<b>Agile و تحویل:</b> Agile/Scrum · Kanban · Hybrid/Waterfall · SDLC · Sprint Planning · Daily Standup · Sprint Review و Demo · Retrospective · Backlog Refinement · Velocity Tracking · UAT و همکاری با QA · Release Management · Change Management · همکاری و هماهنگی Cross-Functional"><b>Agile &amp; Delivery:</b> Agile/Scrum · Kanban · Hybrid/Waterfall · SDLC · Sprint Planning · Daily Standups · Sprint Reviews &amp; Demos · Retrospectives · Backlog Refinement · Velocity Tracking · UAT &amp; QA Collaboration · Release Management · Change Management · Cross-Functional Collaboration &amp; Coordination</p>
+
+      <p class="skill" data-fa="<b>کسب‌وکار و رشد:</b> Product Marketing · Go-to-Market (GTM) · Business Development · تحقیقات و ترندهای بازار · Positioning و Value Proposition · Pricing · Monetization (مدل Freemium و Subscription) · CRM · SEO و ASO · بهینه‌سازی Funnel و Conversion · Customer Journey و Customer Experience · Retention و کاهش Churn · طراحی Sales Cycle · مدیریت بودجه"><b>Business &amp; Growth:</b> Product Marketing · Go-to-Market (GTM) · Business Development · Market Research &amp; Trends · Positioning &amp; Value Proposition · Pricing · Monetization (freemium &amp; subscription models) · CRM · SEO &amp; ASO · Funnel &amp; Conversion Optimization · Customer Journey &amp; Customer Experience · Retention &amp; Churn Reduction · Sales-Cycle Design · Budget Ownership</p>
+
+      <p class="skill" data-fa="<b>طراحی و فنی:</b> Figma (Wireframe تا Prototype کلیک‌پذیر؛ Handoff طراحی به توسعه هم‌راستا با PRD و سرویس‌های Backend) · HTML/CSS/JavaScript · WordPress/WooCommerce · مدیریت سرور Linux و Windows · Cloud Deployment · مبانی Network و Security · BPMN 2.0 · Postman/Swagger · اکوسیستم POS/IPG و Payment Gateway · حوزهٔ Banking و FinTech &nbsp;|&nbsp; <b>ابزارها:</b> Jira · Confluence · Trello · Notion · Git/GitHub · MS Office (Word, Excel, PowerPoint) · Google Sheets"><b>Design &amp; Technical:</b> Figma (wireframes → clickable prototypes; design-to-development handoff validated against PRD &amp; backend services) · HTML/CSS/JavaScript · WordPress/WooCommerce · Linux &amp; Windows Server Administration · Cloud Deployment · Networking &amp; Security Fundamentals · BPMN 2.0 · Postman/Swagger · POS/IPG Payment-Gateway Ecosystem · Banking &amp; FinTech Domain &nbsp;|&nbsp; <b>Tools:</b> Jira · Confluence · Trello · Notion · Git/GitHub · MS Office (Word, Excel, PowerPoint) · Google Sheets</p>
+
+      <p class="skill" data-fa="<b>مهارت‌های نرم:</b> Stakeholder Management · مذاکره · تسهیل‌گری · Coaching و Mentoring · آموزش · ارتباط مؤثر · کار تیمی و رهبری · تفکر تحلیلی و استراتژیک · تصمیم‌گیری · حل مسئله · برنامه‌ریزی و پیگیری · پاسخ‌گویی · مهارت ارائه · توجه به جزئیات · خلاقیت · ذهنیت مشتری‌محور"><b>Soft Skills:</b> Stakeholder Management · Negotiation · Facilitation · Coaching &amp; Mentoring · Training · Effective Communication · Teamwork &amp; Leadership · Analytical &amp; Strategic Thinking · Decision-Making · Problem-Solving · Planning &amp; Follow-Up · Accountability · Presentation Skills · Attention to Detail · Creativity · Customer-Centric Mindset</p>
+
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="sec">
+    <h2 class="sec-title" data-fa="سوابق شغلی">Experience</h2>
+
+    <!-- Job 1 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="KICCC logo" data-logo="">
+          <span>KI</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مدیر محصول ارشد — سوپراپلیکیشن PutLife">Senior Product Manager — PutLife Super-App</h3>
+            <span class="job-date" data-fa="اسفند ۱۴۰۴ – اکنون">Feb 2026 – Present</span>
+          </div>
+          <p class="job-org" data-fa="شرکت کارت اعتباری ایران کیش (KICCC) — شرکت دانش‌بنیان ارائه‌دهندهٔ خدمات پرداخت، زیرمجموعهٔ بانک تجارت (سهام‌دار اصلی) | تهران، ایران">Iran Kish Credit Card Co. (KICCC) — knowledge-based PSP, subsidiary of Tejarat Bank (principal shareholder) | Tehran, Iran</p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="مالک سرتاسری PutLife — سوپراپلیکیشن پرچم‌دار فین‌تک شرکت برای پرداخت، اعتبار و خدمات ارزش‌افزوده: <strong>بیش از ۲ میلیون کاربر ثبت‌شده</strong> و <strong>بیش از ۳۰۰ هزار کاربر فعال</strong> در Android، iOS و PWA.">End-to-end owner of PutLife — the company's flagship fintech super-app for payments, credit &amp; value-added services: <strong>2M+ registered users</strong>, <strong>300K+ active users</strong> across Android, iOS &amp; PWA.</p>
+      <ul class="bullets">
+        <li data-fa="مالکیت استراتژی محصول، Roadmap و کل چرخهٔ عمر محصول: <strong>Product Discovery</strong> مستمر و <strong>اولویت‌بندی داده‌محور</strong> بر پایهٔ <strong>OKR</strong>های فصلی؛ هدایت تحویل <strong>Cross-Functional Agile/Scrum</strong> در تیم‌های Android، iOS و PWA (<strong>Sprint Planning</strong>، Backlog Refinement، Daily Standup، Sprint Review و Retrospective، Release Management)؛ تدوین <strong>Epic</strong>، <strong>User Story</strong>، <strong>Acceptance Criteria</strong> و <strong>PRD</strong> در <strong>Jira/Confluence</strong> با گردش‌کار مستندسازی و تحلیل تقویت‌شده با AI؛ مدیریت یک سلول محصول دو نفره و همکاری در جذب نیرو برای واحد توسعهٔ محصول.">Own product strategy, roadmap and the full product lifecycle: continuous <strong>product discovery</strong> and <strong>data-driven prioritization</strong> on quarterly <strong>OKRs</strong>; lead <strong>cross-functional Agile/Scrum</strong> delivery across Android, iOS &amp; PWA squads (<strong>sprint planning</strong>, backlog refinement, daily standups, sprint reviews &amp; retrospectives, release management); author <strong>epics, user stories, acceptance criteria</strong> and <strong>PRDs</strong> in <strong>Jira/Confluence</strong> with an <strong>AI-augmented documentation &amp; analysis workflow</strong>; manage a 2-person product cell and co-lead hiring for the product development unit.</li>
+
+        <li data-fa="رشد <strong>بیش از ۱٬۰۰۰ کاربر ارگانیک روزانه با هزینهٔ جذب صفر</strong> از طریق بهبود UX و کیفیت که امتیاز اپ در Cafe Bazaar را بالا برد (<strong>ASO</strong>)، یک لندینگ‌پیج بهینه‌شده برای <strong>SEO</strong>، و تبدیل نیروی پشتیبانی میدانی POS به یک کانال ارجاع پذیرندهٔ بدون بودجه؛ راه‌اندازی <strong>Merchant Self-Service Suite</strong> (مشاهدهٔ تراکنش‌ها، گزارش‌گیری، درخواست تعمیر، سفارش رول کاغذ) در اکوسیستم <strong>POS/IPG</strong> — تعمیق <strong>B2B Engagement</strong> و کاهش تماس‌های پشتیبانی.">Grew <strong>+1,000 daily organic users at zero acquisition cost</strong> through UX and quality improvements that raised the app's Cafe Bazaar rating (<strong>ASO</strong>), an <strong>SEO</strong>-optimized landing page, and converting the POS field-support force into a zero-budget merchant referral channel; launched the <strong>merchant self-service suite</strong> (transaction visibility, reporting, repair requests, paper-roll orders) across the <strong>POS/IPG payment-gateway</strong> ecosystem — deepening <strong>B2B engagement</strong> and deflecting support calls.</li>
+
+        <li data-fa="کاهش <strong>خطاهای پرداخت داخلی از ۲۴٪ به ۲٪</strong> از طریق Root-Cause Analysis، Bug Triage و <strong>UAT</strong> ساختاریافته، با پایش روی <strong>Power BI KPI Dashboard</strong> و <strong>Cohort/Retention/LTV Tracking</strong> در چرخه‌های بهبود مستمر.">Cut internal <strong>payment errors from 24% to 2%</strong> through root-cause analysis, bug triage and structured <strong>UAT</strong>, monitored on <strong>Power BI KPI dashboards</strong> with <strong>cohort, retention and LTV tracking</strong> in continuous-improvement cycles.</li>
+
+        <li data-fa="رهبری برنامهٔ انطباق امنیتی <strong>کاشف</strong> — پیش‌نیاز شاپرک برای تمدید قراردادهای کارت‌به‌کارت با بانک‌های طرف قرارداد: مالکیت سرتاسری <strong>پیگیری ذی‌نفعان (Stakeholder)</strong> با بانک‌ها، رفع ایرادها با اولویت‌بندی <strong>ریسک</strong> در میان نسخه‌ها، و طراحی راهکارهای جایگزین در مواردی که اصلاحات ساختاری تهدید ریزش کاربر بود — حفظ <strong>Retention</strong> هم‌زمان با رفع مانع همکاری‌های بانکی.">Led the <strong>Kashef security-compliance</strong> program — the Shaparak prerequisite for renewing card-to-card contracts with partner banks: owned end-to-end <strong>stakeholder follow-up</strong> with banks, <strong>risk</strong>-ranked remediation across releases, and designed alternative solutions where structural fixes threatened user churn — protecting <strong>retention</strong> while unblocking bank partnerships.</li>
+
+        <li data-fa="حفظ دسترس‌پذیری کامل PutLife در خلال یک اختلال سراسری بانکی که زیرساخت POS <strong>چهار بانک بزرگ</strong> را از کار انداخت، و سپس هدایت بازیابی تا <strong>رشد ۵٪ تراکنش‌ها و ۱۰٪ رشد کاربران</strong> در فصل بعد.">Kept PutLife fully available through a nationwide banking disruption that took <strong>four major banks'</strong> POS infrastructure offline, then drove recovery to <strong>+5% transactions and +10% user growth</strong> the following quarter.</li>
+
+        <li data-fa="عرضهٔ مجموعه‌ای از محصولات پرداخت و اعتبار: <strong>کیف پول TVO</strong> و <strong>کیف پول مهارتی Maharat</strong> با سازمان فنی و حرفه‌ای (اعتبار اقساطی آموزش مهارتی از طریق Kalano)، <strong>کیف پول ریال دیجیتال (CBDC)</strong>، <strong>کارت چندبودجه‌ای</strong>، <strong>SMART</strong> — نرم‌افزار پشتیبانی میدانی تیم‌های POS — و <strong>SMART Banking</strong>، پلتفرم ارتباط مشتری و بانک‌دار برای بانک تجارت؛ اجرای <strong>پایلوت توکنیزاسیون دارایی بر بستر Blockchain</strong> برای استفاده از دارایی‌های توکنیزه به‌عنوان <strong>وثیقهٔ وام</strong> (با DiaChain و Nozohoor Tejarat)؛ و رهبری <strong>پروژه‌های استراتژیک محرمانه در مقیاس ملی</strong> برای بانک تجارت.">Shipped a portfolio of payment &amp; credit products: the <strong>TVO Wallet</strong> and <strong>Maharat Skill Wallet</strong> with Iran's Technical &amp; Vocational Organization (installment skill-training credit via Kalano), a <strong>Digital Rial (CBDC) wallet</strong>, a <strong>multi-budget card</strong>, <strong>SMART</strong> — field-support software for POS support teams — and <strong>SMART Banking</strong>, a customer–banker communication platform for Tejarat Bank; ran a <strong>blockchain asset-tokenization pilot</strong> enabling tokenized assets as <strong>loan collateral</strong> (with DiaChain &amp; Nozohoor Tejarat); and led <strong>confidential national-scale strategic projects</strong> for Tejarat Bank.</li>
+
+        <li data-fa="<strong>مدیریت پروژه</strong> سیستم ماژولار تعمیر POS — یک محصول <strong>POS-Hardware Service-Management</strong> وایت‌لیبل — از مرحلهٔ پیشنهاد تا انتشار قابل فروش: مالکیت <strong>Requirements Discovery</strong>، <strong>Stakeholder Alignment</strong> و <strong>Solution Design</strong> برای <strong>معماری</strong> ماژولار آن؛ توجیه اقتصادی بر اساس <strong>Business Case</strong> تأییدشده توسط مدیرعامل — <strong>نقطهٔ سربه‌سر ۱.۵ ساله</strong> و <strong>سود سالانهٔ پیش‌بینی‌شده حدود ۲.۸ میلیارد تومان</strong> — یک خط <strong>Monetization</strong> جدید برای شرکت.">Project-managed the Modular POS Repair System — a white-label <strong>POS-hardware service-management</strong> product — from proposal to sellable release: owned <strong>requirements discovery</strong>, <strong>stakeholder alignment</strong> and <strong>solution design</strong> for its modular <strong>architecture</strong>; economics per CEO-approved <strong>business case</strong> — <strong>1.5-year break-even</strong> and <strong>~2.8B Tomans projected annual profit</strong> — a new <strong>monetization</strong> line for the company.</li>
+      </ul>
+    </article>
+
+    <!-- Job 2 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Tiss TSP logo" data-logo="">
+          <span>TT</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مدیر محصول ارشد <span style='font-weight:400;opacity:.85'>(ارتقا از دستیار معاونت توسعهٔ کسب‌وکار)</span>">Senior Product Manager <span style="font-weight:400;opacity:.85">(promoted from Assistant to the VP of Business Development)</span></h3>
+            <span class="job-date" data-fa="دی ۱۴۰۳ – اسفند ۱۴۰۴">Dec 2024 – Feb 2026</span>
+          </div>
+          <p class="job-org" data-fa="تیس TSP (داده‌پردازی معتمد تیس) — ارائه‌دهندهٔ مجاز خدمات مالیاتی و ارسال صورت‌حساب الکترونیکی به سامانهٔ ملی مؤدیان (مجری قانون پایانه‌های فروشگاهی) | تهران، ایران">Tiss TSP (Dadeh Pardazi Motamed Tiss) — authorized tax-service provider transmitting e-invoices to Iran's national Moadian platform (executor of the store-terminal law) | Tehran, Iran</p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="در حدود ۱۵ ماه از دستیار معاونت <strong>Business Development</strong> به مدیر محصول ارشد ارتقا یافتم؛ مدیریت مستقیم یک تیم <strong>۵ نفره</strong> و نظارت بر عملکرد <strong>۲۲</strong> نفر؛ اجرای فرایندهای محصول در <strong>Jira</strong> با تمرکز فزاینده بر محصول، توسعهٔ پلتفرم و گسترش بازار.">Progressed in ~15 months from Assistant to the VP of <strong>Business Development</strong> to Senior Product Manager; managed a <strong>5-person team directly</strong> and oversaw the performance of <strong>22</strong>; ran product processes in <strong>Jira</strong> with a growing focus on product, platform development and market expansion.</p>
+      <ul class="bullets">
+        <li data-fa="نظارت بر بازسازی کامل وب‌سایت شرکت — بهینه‌سازی <strong>SEO</strong> و ساختار محتوا با <strong>رشد ۳۱۸٪ ترافیک ارگانیک</strong> (۳۵.۸ هزار نمایش، ۲.۷ هزار کلیک) در ۴ ماه، با اندازه‌گیری در داشبوردهای <strong>GA4/Search Console</strong> ساخته‌شده در <strong>Looker Studio</strong>؛ تسریع جذب مشتری.">Supervised the ground-up rebuild of the company website — <strong>SEO</strong> and content-structure <strong>optimization</strong> delivering <strong>+318% organic traffic</strong> (35.8K impressions, 2.7K clicks) in 4 months, measured via <strong>GA4/Search Console dashboards</strong> built in <strong>Looker Studio</strong>; accelerated customer acquisition.</li>
+
+        <li data-fa="عرضهٔ <strong>اپلیکیشن مالیاتی Android</strong> (قابل اجرا روی پایانه‌های POS اندرویدی و گوشی‌های موبایل) با فرایند صدور صورت‌حساب الکترونیکی رایگان و بسیار ساده‌شده — جذب هزاران پذیرندهٔ خرد <strong>B2C</strong> (صنف طلا و میوه‌وتره‌بار) از طریق <strong>اعتمادسازی و آموزش میدانی</strong>؛ رشد کاربران از <strong>۲۰ هزار به ۴۳ هزار (+۱۱۵٪)</strong>.">Shipped the <strong>Android tax app</strong> (running on both Android POS terminals and mobile phones) with a radically simplified, free e-invoicing flow — onboarding thousands of retail <strong>B2C</strong> merchants (gold &amp; produce trades) through field <strong>trust-building and training</strong>; grew users from <strong>20K to 43K (+115%)</strong>.</li>
+
+        <li data-fa="بهینه‌سازی پلتفرم اصلی <strong>ارسال صورت‌حساب الکترونیکی</strong> در شرایطی که رشد مشتریان از ظرفیت پیشی گرفته بود: بازطراحی صف‌های ارسال، افزودن اعتبارسنج‌های پیش‌پردازشی و برنامه‌ریزی توسعهٔ سرورها — رشد حجم صورت‌حساب‌ها از <strong>۵.۷ میلیارد به ۱۰.۳ میلیارد (+۸۱٪)</strong> و رسیدن به <strong>حدود ۵۰٪ سهم بازار</strong> از کل صورت‌حساب‌های الکترونیکی ارسالی به مؤدیان در کشور، به‌عنوان مهم‌ترین <strong>KPI</strong> رقابتی صنعت؛ حفظ پایداری کامل خدمات در <strong>جنگ ۱۲ روزه</strong> — دریافت نشان <strong>«همکار نمونه»</strong>.">Optimized the core <strong>e-invoice submission platform</strong> amid faster-than-capacity customer growth: rebuilt submission queues, added pre-processing validators and planned server expansion — grew invoice volume from <strong>5.7B to 10.3B invoices (+81%)</strong>, reaching <strong>~50% market share</strong> of all e-invoices submitted nationally to Moadian, the industry's #1 competitive KPI; kept services fully stable through the <strong>12-day war</strong> — honored with the <strong>"Exemplary Colleague" award</strong>.</li>
+
+        <li data-fa="پیاده‌سازی <strong>Customer Experience</strong> سرتاسری: ترسیم کامل <strong>Customer Journey</strong>، بهبود Acquisition و <strong>Retention</strong>، ارائهٔ جریان‌های Self-Service و <strong>اتوماسیون تیکت با n8n</strong> — از جمله یک <strong>دستیار مالیاتی AI مبتنی بر RAG</strong> برای پاسخ به پرسش‌های مؤدیان — کاهش <strong>۸۳٪ شکایات</strong> و دستیابی به <strong>نرخ پاسخ‌گویی ۹۹.۳٪</strong> به تماس‌ها؛ <strong>Monetization</strong> خدمات ارزش‌افزوده (API Access، پشتیبانی پریمیوم) از طریق <strong>اشتراک سالانه</strong>؛ بازساختاردهی چیدمان تیم‌ها (<strong>Change Management</strong>).">Implemented end-to-end <strong>customer experience</strong>: mapped the full <strong>customer journey</strong>, improved acquisition &amp; <strong>retention</strong>, shipped self-service flows and <strong>n8n ticket automation</strong> — including a <strong>RAG-based AI tax assistant</strong> answering taxpayers' questions — cutting complaints by <strong>83%</strong> and achieving a <strong>99.3% call-response rate</strong>; <strong>monetized value-added services</strong> (API access, premium support) through <strong>annual subscriptions</strong>; restructured team setups (<strong>change management</strong>).</li>
+
+        <li data-fa="رهبری <strong>Process Improvement</strong> و بازمستندسازی عملیات دفتر معاونت بر اساس استاندارد <strong>APQC</strong>، مدل‌شده در <strong>BPMN 2.0</strong> (مبتنی بر مصاحبه و هم‌راستا با کسب‌وکار) — سهمی تعیین‌کننده در کسب <strong>جایزهٔ ملی کیفیت ایران (۱۴۰۴ / ۲۰۲۵)</strong> به‌عنوان <strong>تنها</strong> ارائه‌دهندهٔ مجاز خدمات مالیاتی که تاکنون این جایزه را دریافت کرده است.">Led <strong>process improvement</strong> and re-<strong>documentation</strong> of VP-office operations on the <strong>APQC</strong> standard, modeled in <strong>BPMN 2.0</strong> (interview-driven, business-aligned) — a decisive contribution to winning the <strong>Iran National Quality Award (1404 / 2025)</strong> as the <strong>only</strong> authorized tax-service provider ever to receive it.</li>
+      </ul>
+    </article>
+
+    <!-- Job 3 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Afaq Seir logo" data-logo="">
+          <span>AS</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مالک محصول (Product Owner)">Product Owner</h3>
+            <span class="job-date" data-fa="خرداد – دی ۱۴۰۳">May – Dec 2024</span>
+          </div>
+          <p class="job-org" data-fa="آفاق سیر — شرکت گردشگری و سفر؛ <strong>SafarMall</strong>، بازارگاه چندفروشندگی رزرو سفر (PWA) | تهران، ایران | تمام‌وقت، حضوری">Afaq Seir — travel &amp; tourism company; <strong>SafarMall</strong>, a multi-supplier travel-booking <strong>marketplace</strong> (PWA) | Tehran, Iran | Full-time, On-site</p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="مالک سرتاسری SafarMall — از <strong>یکپارچه‌سازی تأمین‌کنندگان</strong> و <strong>زیرساخت رزرو</strong> تا خطوط محصول جدید؛ رهبری یک تیم توسعهٔ ۶ نفره (نقش ترکیبی PO/PM).">End-to-end owner of SafarMall — from supplier <strong>integrations</strong> and reservation <strong>infrastructure</strong> to new product lines; led a 6-person development team (PO/PM hybrid role).</p>
+      <ul class="bullets">
+        <li data-fa="پیاده‌سازی <strong>CRM/VOIP</strong> و بازطراحی گردش‌کار پاسخ‌گویی — کاهش زمان پاسخ از ۵ به ۲ دقیقه، رشد <strong>۲۲٪ Conversion</strong> سرنخ به مشتری و کاهش <strong>۲۱٪</strong> تماس‌های بی‌پاسخ.">Implemented <strong>CRM/VOIP</strong> and rebuilt the response workflow — response time down from 5 to 2 minutes, lead-to-customer <strong>conversion +22%</strong>, missed calls <strong>−21%</strong>.</li>
+
+        <li data-fa="رهبری <strong>مذاکرات فنی و تجاری</strong> با ۴ ایرلاین بزرگ (Mahan، IranAir، Sepehran، Aseman) و <strong>یکپارچه‌سازی REST API</strong> آن‌ها در زیرساخت رزرو (اعتبارسنجی با <strong>Postman/Swagger</strong>) — کاهش زمان صدور بلیت از ۵ به ۳ دقیقه؛ پوشش پروازهای داخلی به <strong>۸۵٪</strong> و بین‌المللی به <strong>۴۰٪</strong>.">Led <strong>technical &amp; commercial negotiations</strong> with 4 major airlines (Mahan, IranAir, Sepehran, Aseman) and <strong>integrated their REST APIs</strong> into the reservation infrastructure (validated via <strong>Postman/Swagger</strong>) — ticket issuance down from 5 to 3 minutes; domestic flight coverage to <strong>85%</strong>, international to <strong>40%</strong>.</li>
+
+        <li data-fa="بازطراحی <strong>Funnel</strong> رزرو و <strong>User Flow</strong>ها (جست‌وجو، فیلترها، پرداخت) از طریق <strong>Hypothesis-Driven Experimentation (A/B Testing)</strong> و <strong>تحلیل داده</strong> — رشد Conversion جست‌وجو به رزرو از ۲.۳٪ به ۳.۸٪ <strong>(+۶۵٪)</strong>، کاهش Payment Drop-off از ۳۲٪ به ۱۹٪ و رشد <strong>۲۱٪</strong> تکمیل رزرو.">Redesigned the booking <strong>funnel</strong> and <strong>user flows</strong> (search, filters, payment) through <strong>hypothesis-driven experimentation (A/B testing)</strong> and <strong>data analysis</strong> — search-to-book conversion from 2.3% to 3.8% <strong>(+65%)</strong>, payment drop-off from 32% to 19%, reservation completion <strong>+21%</strong>.</li>
+
+        <li data-fa="راه‌اندازی دو موتور <strong>Monetization</strong>: <strong>Cross-Sell</strong> هوشمند خدمات جانبی (بیمهٔ سفر، هتل، ترانسفر فرودگاهی) با رشد <strong>۱۳۲٪ Attach Rate</strong>؛ و یک خط محصول لوکس بر پایهٔ نیازسنجی بازار و بخش‌بندی دو سطحی مشتریان و <strong>Pricing</strong> — <strong>رشد ۳۵٪ AOV</strong> و <strong>۲۸٪ نرخ خرید مجدد</strong> در ۶ ماه.">Launched two <strong>monetization</strong> engines: smart <strong>cross-sell</strong> of ancillaries (travel insurance, hotels, airport transfers) with <strong>attach rate +132%</strong>; and a luxury product line built on market-needs assessment and two-tier customer segmentation &amp; <strong>pricing</strong> — <strong>AOV +35%</strong>, repeat-purchase rate <strong>+28%</strong> in 6 months.</li>
+
+        <li data-fa="تحویل <strong>۹۲٪ از Story Point</strong>های برنامه‌ریزی‌شده در هر <strong>Sprint</strong>؛ عرضهٔ <strong>MVP</strong> طبق زمان‌بندی و کاهش <strong>۲۰٪</strong> وابستگی‌های میراثی.">Delivered <strong>92% of planned Story Points</strong> per <strong>sprint</strong>; shipped the <strong>MVP</strong> on schedule and cut legacy dependencies by <strong>20%</strong>.</li>
+      </ul>
+    </article>
+
+    <!-- Job 4 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Almassazeh Gostar logo" data-logo="">
+          <span>AG</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مدیر بازاریابی محصول">Product Marketing Manager</h3>
+            <span class="job-date" data-fa="اسفند ۱۴۰۱ – خرداد ۱۴۰۳">Feb 2023 – May 2024</span>
+          </div>
+          <p class="job-org" data-fa="الماسازه گستر سمنان — تولیدکنندهٔ دانش‌بنیان مصالح ساختمانی خشک (گچ تخصصی ضدآب و ضدحریق) | سمنان، ایران | تمام‌وقت، حضوری">Almassazeh Gostar Semnan — knowledge-based dry-mix building-materials manufacturer (specialized waterproof &amp; fire-resistant gypsum) | Semnan, Iran | Full-time, On-site</p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="رهبری راه‌اندازی از صفر تا یک نخستین کانال فروش آنلاین شرکت؛ ساخت شبکهٔ نمایندگی و صادرات؛ تدوین استراتژی <strong>Go-to-Market (GTM)</strong>؛ رهبری یک تیم ۳ نفرهٔ فروش و بازاریابی دیجیتال.">Led the zero-to-one launch of the company's first online sales channel; built the dealership &amp; export networks; defined the <strong>Go-to-Market (GTM)</strong> strategy; led a 3-person sales &amp; digital-marketing team.</p>
+      <ul class="bullets">
+        <li data-fa="<strong>تجارت الکترونیک از صفر تا یک</strong>: طراحی و راه‌اندازی نخستین فروشگاه آنلاین شرکت روی <strong>WordPress/WooCommerce</strong> بدون هیچ سابقهٔ فروش دیجیتال — رشد از صفر به میانگین <strong>۳ تن در روز</strong> فروش آنلاین در <strong>۱۰ ماه</strong>.">Zero-to-one <strong>e-commerce</strong>: designed and launched the company's first online store on <strong>WordPress/WooCommerce</strong> with zero digital-sales history — scaled from nothing to an average of <strong>3 tons/day</strong> in online sales within <strong>10 months</strong>.</li>
+
+        <li data-fa="گسترش چندکانالهٔ <strong>B2B</strong>: جذب <strong>۱۴ نمایندگی جدید</strong> و فعال‌سازی کانال‌های Torob، Sheypoor و Divar — تولید <strong>۴۵٪ سرنخ‌های فروش آنلاین</strong> و کاهش <strong>۲۸٪ CAC</strong>؛ ایجاد روابط تجاری با صادرکنندگان مصالح ساختمانی و تحقق نخستین <strong>معاملات صادراتی</strong> شرکت به عراق، روسیه، افغانستان و ترکیه (<strong>۱۵٪ حجم فروش سالانه</strong>).">Multi-channel <strong>B2B</strong> expansion: onboarded <strong>14 new dealerships</strong> and activated Torob, Sheypoor &amp; Divar channels — generating <strong>45% of online sales leads</strong> and cutting <strong>CAC by 28%</strong>; built trade relationships with building-materials exporters, enabling the company's first <strong>export deals</strong> to Iraq, Russia, Afghanistan &amp; Turkey (<strong>15% of annual sales volume</strong>).</li>
+
+        <li data-fa="<strong>Technical SEO</strong> و عملکرد وب: ارتقای PageSpeed از <strong>۶۸ به ۱۰۰</strong> (دسکتاپ) و از <strong>۵۴ به ۹۸</strong> (موبایل)، کاهش زمان بارگذاری از <strong>۶.۲ به ۱.۹ ثانیه</strong> (GTmetrix)، کاهش <strong>۴۵٪ Bounce Rate</strong> و رشد <strong>۱۲۰٪ ترافیک ارگانیک</strong> — با اندازه‌گیری در <strong>GA4/Google Tag Manager</strong> و داشبوردهای گزارش‌گیری <strong>Looker Studio</strong> ساخته‌شده در تیم؛ کسب رتبه‌های برتر Google برای <strong>بیش از ۵ کلمهٔ کلیدی استراتژیک</strong> و سه‌برابر شدن نمایش‌های ارگانیک ماهانه.">Technical <strong>SEO</strong> &amp; web performance: lifted PageSpeed from <strong>68 to 100</strong> (desktop) and <strong>54 to 98</strong> (mobile), cut load time from <strong>6.2s to 1.9s</strong> (GTmetrix), reduced bounce rate by <strong>45%</strong> and grew organic traffic <strong>120%</strong> — measured via <strong>GA4/Google Tag Manager</strong> with self-built <strong>Looker Studio</strong> reporting dashboards; earned top Google rankings for <strong>5+ strategic keywords</strong> and tripled monthly organic impressions.</li>
+
+        <li data-fa="استراتژی <strong>CRO</strong> و <strong>GTM</strong>: بازطراحی لندینگ‌پیج‌ها و <strong>Funnel</strong> خرید — رشد Conversion از <strong>۱.۴٪ به ۳.۲٪ (+۱۲۹٪)</strong>؛ تعیین <strong>Positioning</strong> و <strong>Value Proposition</strong> برای خطوط محصول جدید بر پایهٔ <strong>Competitive Analysis</strong>، <strong>Market Research</strong> و <strong>Market Trends</strong> — کوتاه شدن <strong>۳۰٪ Sales Cycle</strong>."><strong>CRO</strong> &amp; GTM strategy: redesigned landing pages and the purchase <strong>funnel</strong> — conversion rate from <strong>1.4% to 3.2% (+129%)</strong>; defined <strong>positioning</strong> &amp; value proposition for new product lines based on <strong>competitive analysis</strong>, <strong>market research</strong> &amp; <strong>market trends</strong> — shortening the sales cycle by <strong>30%</strong>.</li>
+      </ul>
+    </article>
+
+    <!-- Job 5 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Ring Sport logo" data-logo="">
+          <span>RS</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="استراتژیست محتوا و مدیر توسعهٔ مخاطب">Content Strategist &amp; Audience Development Lead</h3>
+            <span class="job-date" data-fa="اسفند – دی ۱۴۰۲">Feb – Dec 2023</span>
+          </div>
+          <p class="job-org" data-fa="رینگ اسپرت — رسانهٔ تخصصی تیونینگ خودرو و موتورسپورت ایران | تهران، ایران | پاره‌وقت، ترکیبی">Ring Sport — Iran's specialized automotive tuning &amp; motorsport media | Tehran, Iran | Part-time, Hybrid</p>
+        </div>
+      </header>
+      <ul class="bullets">
+        <li data-fa="راه‌اندازی از صفر تا یک <strong>مجلهٔ Ring Sport</strong> با <strong>۳ ستون تحریریه</strong> (بررسی خودرو، پوشش رویدادهای مسابقه‌ای، تحلیل صنعت) و تولید چندرسانه‌ای میدانی — رشد ترافیک از صفر به <strong>بیش از ۵۰۰ بازدید روزانه</strong> با میانگین حضور <strong>بیش از ۳ دقیقه</strong>، که نشان‌دهندهٔ کیفیت محتوا و وفاداری مخاطب است.">Zero-to-one launch of <strong>Ring Sport Magazine</strong> with <strong>3 editorial pillars</strong> (vehicle reviews, racing event coverage, industry analysis) and on-ground multimedia production — scaled traffic from zero to <strong>500+ daily visits</strong> with a <strong>3+ minute</strong> average session, reflecting content quality and audience loyalty.</li>
+
+        <li data-fa="جلب اعتماد <strong>SAIPA و Iran Khodro (IKCO)</strong> برای بررسی‌های اختصاصی خودروهای تولیدی‌شان از طریق کیفیت محتوا و اعتبار رسانه‌ای — تثبیت Ring Sport به‌عنوان مرجع اصلی تیونینگ خودرو در ایران.">Earned the trust of <strong>SAIPA and Iran Khodro (IKCO)</strong> for dedicated reviews of their production vehicles through content quality and media credibility — establishing Ring Sport as Iran's go-to automotive tuning reference.</li>
+      </ul>
+    </article>
+
+    <!-- Job 6 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Sebyan logo" data-logo="">
+          <span>SB</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مالک محصول <span style='font-weight:400;opacity:.85'>(ارتقا از پژوهشگر ارشد محصول در ۳ ماه)</span>">Product Owner <span style="font-weight:400;opacity:.85">(promoted from Senior Product Researcher within 3 months)</span></h3>
+            <span class="job-date" data-fa="دی ۱۴۰۰ – اسفند ۱۴۰۱">Dec 2021 – Feb 2023</span>
+          </div>
+          <p class="job-org" data-fa="شرکت سبیان — شرکت <strong>EdTech</strong>؛ سازندهٔ پلتفرم «Daneshjouyar» | تهران، ایران | تمام‌وقت <em>(+ ۳ ماه کارآموزی از مهر ۱۴۰۰)</em>">Sebyan Company — <strong>EdTech</strong> company; builder of the "Daneshjouyar" platform | Tehran, Iran | Full-time <em>(+ 3-month internship from Oct 2021)</em></p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="مالک از صفر تا یک <strong>Daneshjouyar</strong> — یک PWA تک‌پنجره‌ای برای خدمات غیرآموزشی دانشگاهی دانشجویان که در دوران COVID-19 برای دسترسی از راه دور متولد شد؛ مالکیت نیازسنجی، <strong>User Research</strong>، تحلیل بازار و رقبا (<strong>TAM/SAM/SOM</strong>)، <strong>Global Product Benchmarking</strong> و تعریف <strong>Roadmap</strong> از ابتدای تولید.">Zero-to-one owner of <strong>Daneshjouyar</strong> — a single-window PWA for students' non-academic university services, born during COVID-19 for remote access; owned needs assessment, <strong>user research</strong>, market &amp; competitor analysis (<strong>TAM/SAM/SOM</strong>), global product benchmarking and <strong>roadmap</strong> definition from initial production.</p>
+      <ul class="bullets">
+        <li data-fa="به‌کارگیری <strong>Design Thinking</strong> سرتاسری — از <strong>Product Definition</strong> تا <strong>Prototyping</strong> و <strong>Usability Testing</strong>؛ Benchmarking محصولات مشابه جهانی برای تعریف <strong>Product Vision</strong> «<strong>پنجرهٔ واحد خدمات دانشجویی</strong>» و تبدیل آن به یک Roadmap قابل اجرا — عرضهٔ v1 با <strong>۱۴ سرویس فعال دانشجویی</strong>.">Applied <strong>Design Thinking</strong> end-to-end — from <strong>product definition</strong> to <strong>prototyping</strong> and <strong>usability testing</strong>; benchmarked comparable global products to define the "<strong>Single Window for Student Services</strong>" <strong>product vision</strong>, translated into an executable roadmap — launched v1 with <strong>14 active student services</strong>.</li>
+
+        <li data-fa="طراحی و اجرای <strong>User Research</strong> سرتاسری: <strong>بیش از ۱۲۰ نظرسنجی</strong> و <strong>بیش از ۳۵ مصاحبهٔ عمیق کاربری</strong> در <strong>۱۲ دانشگاه</strong>؛ استخراج و اولویت‌بندی <strong>۸ خوشهٔ نیاز اصلی</strong> (رفاهی، تغذیه، خوابگاه، فوق‌برنامه) به‌عنوان پایهٔ <strong>MVP Backlog</strong>.">Designed and ran end-to-end <strong>user research</strong>: <strong>120+ surveys</strong> and <strong>35+ in-depth user interviews</strong> across <strong>12 universities</strong>; extracted and prioritized <strong>8 core need clusters</strong> (welfare, nutrition, dormitory, extracurricular) as the <strong>MVP backlog</strong> foundation.</li>
+
+        <li data-fa="طراحی <strong>Sub-5-Click User Flow</strong>ها و <strong>Prototype</strong>های کلیک‌پذیر (Figma/Adobe XD) به‌جای مراجعهٔ حضوری و صف‌های فیزیکی — <strong>نرخ موفقیت ۸۷٪</strong> در <strong>Usability Testing</strong>.">Designed <strong>sub-5-click user flows</strong> and <strong>clickable prototypes</strong> (Figma/Adobe XD) replacing in-person visits and physical queues — <strong>87% success rate</strong> in <strong>usability testing</strong>.</li>
+
+        <li data-fa="ساخت رهگیری گام‌به‌گام وضعیت درخواست و ارتباط مستقیم دانشجو با ارائه‌دهنده — کاهش <strong>۶۰٪</strong> تیکت‌های استعلام وضعیت؛ جذب <strong>۹٬۰۰۰ کاربر از صفر در ۶ ماه</strong> با <strong>نرخ استفادهٔ فعال ۴۲٪</strong> (Activation).">Built step-by-step request-status tracking and direct student-to-provider connection — cut status-inquiry tickets by <strong>60%</strong>; acquired <strong>9,000 users from zero within 6 months</strong> at a <strong>42% active usage rate</strong> (Activation).</li>
+
+        <li data-fa="<strong>Privacy by Design</strong>: تعریف جریان‌های Informed Consent و اصول <strong>Data Protection</strong> شخصی."><strong>Privacy by Design</strong>: defined informed-consent flows and personal-<strong>data protection</strong> principles.</li>
+      </ul>
+    </article>
+
+    <!-- Job 7 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Avangard Tech logo" data-logo="">
+          <span>AV</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مدیر بازاریابی محصول <span style='font-weight:400;opacity:.85'>(ارتقا از سرپرست بازاریابی دیجیتال در ۳ ماه)</span>">Product Marketing Manager <span style="font-weight:400;opacity:.85">(promoted from Head of Digital Marketing within 3 months)</span></h3>
+            <span class="job-date" data-fa="آبان ۱۳۹۹ – شهریور ۱۴۰۰">Oct 2020 – Aug 2021</span>
+          </div>
+          <p class="job-org" data-fa="آونگارد تک — زیرمجموعهٔ هلدینگ Raymon Amitis؛ آژانس دیجیتال تمام‌خدمت و توسعه‌دهندهٔ برند آب معدنی لوکس «Viva Vital» | تهران، ایران | تمام‌وقت، حضوری">Avangard Tech — a Raymon Amitis holding subsidiary; full-service digital agency &amp; developer of the "Viva Vital" luxury mineral-water brand | Tehran, Iran | Full-time, On-site</p>
+        </div>
+      </header>
+      <ul class="bullets">
+        <li data-fa="ساخت برند <strong>Viva Vital</strong> در مرحلهٔ R&amp;D: هویت بصری و <strong>Positioning</strong> پریمیوم؛ طراحی <strong>۳ SKU</strong> (Classic، Healthy، Sport) با دیده‌شدن قفسه‌ای متمایز برای هر بخش؛ تدوین <strong>GTM Roadmap</strong> سه‌فازی شامل <strong>Pricing</strong> پریمیوم، چارچوب پیام‌رسانی و تقویم عرضهٔ منطقه‌ای مرحله‌ای.">Built the <strong>Viva Vital</strong> brand during R&amp;D: premium visual identity &amp; <strong>positioning</strong>; designed <strong>3 SKUs</strong> (Classic, Healthy, Sport) with segment-differentiated shelf visibility; crafted a 3-phase <strong>GTM roadmap</strong> covering premium <strong>pricing</strong>, messaging framework and a phased regional launch calendar.</li>
+
+        <li data-fa="<strong>Market Research</strong> و توزیع: تحلیل رفتار مصرف‌کنندهٔ مرفه تهران و استخراج <strong>۴ عامل کلیدی تصمیم خرید</strong>؛ طراحی مدل توزیع <strong>B2C</strong> پریمیوم و انعقاد قرارداد با <strong>بیش از ۳۵ نقطهٔ فروش</strong> (سوپرمارکت‌های لوکس و باشگاه‌های ورزشی پریمیوم، مناطق ۱ تا ۳)."><strong>Market research</strong> &amp; distribution: analyzed affluent-Tehran consumer behavior and extracted <strong>4 key purchase-decision factors</strong>; designed a premium <strong>B2C</strong> distribution model and signed <strong>35+ points of sale</strong> (luxury supermarkets &amp; premium sports clubs, Districts 1–3).</li>
+
+        <li data-fa="ریاست بخش بازاریابی دیجیتال آژانس: جذب <strong>۱۸ مشتری B2B جدید</strong> (<strong>+۱۲۰٪</strong> پایهٔ مشتریان در ۳ ماه)، تحویل <strong>۷ وب‌سایت</strong> با PageSpeed بالای <strong>۸۵</strong>، رشد <strong>۲.۳ برابری ترافیک ارگانیک</strong> و <strong>۱۸۰٪ Social-Media Engagement</strong> در ۱۲ مشتری فعال؛ استانداردسازی <strong>Sales Cycle</strong> سرتاسری و کاهش <strong>۴۰٪</strong> زمان <strong>Onboarding</strong> مشتریان جدید.">Headed the agency's digital-marketing division: acquired <strong>18 new B2B clients</strong> (<strong>+120%</strong> client base in 3 months), shipped <strong>7 websites</strong> with PageSpeed above <strong>85</strong>, drove <strong>2.3× organic traffic</strong> and <strong>180% social-media engagement</strong> across 12 active clients; standardized the end-to-end <strong>sales</strong> cycle, cutting new-client <strong>onboarding</strong> time by <strong>40%</strong>.</li>
+      </ul>
+    </article>
+
+    <!-- Job 8 -->
+    <article class="job">
+      <header class="job-head">
+        <div class="job-logo">
+          <img alt="Bakhtar Flower logo" data-logo="">
+          <span>BF</span>
+        </div>
+        <div class="job-title-wrap">
+          <div class="job-row">
+            <h3 class="job-role" data-fa="مدیر بازاریابی دیجیتال <span style='font-weight:400;opacity:.85'>(دو ارتقا در ۱۱ ماه: عکاس محصول ← کارشناس ← مدیر)</span>">Digital Marketing Director <span style="font-weight:400;opacity:.85">(two promotions in 11 months: Product Photographer → Specialist → Director)</span></h3>
+            <span class="job-date" data-fa="بهمن ۱۳۹۶ – آبان ۱۳۹۹">Jan 2018 – Oct 2020</span>
+          </div>
+          <p class="job-org" data-fa="باختر فلاور (bakhtarflower.com) — خرده‌فروش آنلاین گل و گیاه | تهران، ایران | پاره‌وقت، دورکاری">Bakhtar Flower (bakhtarflower.com) — online flower &amp; plant <strong>retailer</strong> | Tehran, Iran | Part-time, Remote</p>
+        </div>
+      </header>
+      <p class="job-scope" data-fa="مالکیت سرتاسری استراتژی دیجیتال، <strong>Marketing Budget</strong>، رشد فروش آنلاین و اپلیکیشن تجارت الکترونیک شرکت.">Owned end-to-end digital strategy, the <strong>marketing budget</strong>, online sales growth and the company's e-commerce app.</p>
+      <ul class="bullets">
+        <li data-fa="رشد درآمد آنلاین ماهانه از <strong>۱۲۰ میلیون به بیش از ۳۴۰ میلیون تومان (+۱۸۰٪)</strong> در ۲ سال از طریق <strong>Cross-Sell</strong> و بسته‌های فصلی؛ افزایش <strong>AOV</strong> از <strong>۵۶۰ هزار به ۸۳۰ هزار تومان</strong>؛ راه‌اندازی اپلیکیشن تجارت الکترونیک با <strong>بیش از ۵۰۰ نصب فعال</strong> در ۱۸ ماه.">Grew monthly online revenue from <strong>120M to 340M+ Tomans (+180%)</strong> in 2 years via <strong>cross-sell</strong> and seasonal bundles; lifted <strong>AOV</strong> from <strong>560K to 830K Tomans</strong>; launched the e-commerce app to <strong>500+ active installs</strong> in 18 months.</li>
+
+        <li data-fa="رشد <strong>۳۰۰٪ ترافیک ارگانیک</strong> (از ۸ هزار به ۳۲ هزار بازدید ماهانه) از طریق <strong>SEO</strong>، با قرار گرفتن در نتایج برتر Google برای <strong>بیش از ۵ کلمهٔ کلیدی تراکنشی</strong>؛ اجرای <strong>۱۲ کمپین فصلی</strong> (Valentine's، Mother's Day، Yalda) با میانگین <strong>۴.۸ برابری ROI</strong> و رکورد <strong>بیش از ۲٬۴۰۰ سفارش</strong> در یک روز.">Drove <strong>+300% organic traffic</strong> (8K → 32K monthly visits) through <strong>SEO</strong>, ranking on Google's top results for <strong>5+ transactional keywords</strong>; executed <strong>12 seasonal campaigns</strong> (Valentine's, Mother's Day, Yalda) at <strong>4.8× avg. ROI</strong> with a single-day record of <strong>2,400+ orders</strong>.</li>
+
+        <li data-fa="<strong>CRO</strong> و <strong>UX</strong>: بازطراحی صفحات محصول و <strong>Checkout Flow</strong> — کاهش <strong>Bounce Rate از ۶۸٪ به ۴۱٪</strong>؛ بخش‌بندی استراتژیک حضور Instagram به <strong>۴ صفحهٔ تخصصی</strong> و رشد کل دنبال‌کنندگان به <strong>۱۲۵ هزار</strong>."><strong>CRO</strong> &amp; <strong>UX</strong>: redesigned product pages and the <strong>checkout flow</strong> — bounce rate from <strong>68% to 41%</strong>; strategically segmented the Instagram presence into <strong>4 specialized pages</strong>, growing total followers to <strong>125K</strong>.</li>
+      </ul>
+    </article>
+
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="sec">
+    <h2 class="sec-title" data-fa="تحصیلات">Education</h2>
+    <div class="edu">
+      <div class="edu-item">
+        <span class="edu-deg" data-fa="<b>کارشناسی ارشد، مدیریت صنعتی (تولید و عملیات)</b> — دانشگاه سمنان، دانشکدهٔ مدیریت"><b>M.Sc., Industrial Management (Production &amp; Operations)</b> — Semnan University, Faculty of Management</span>
+        <span class="edu-date" data-fa="۱۴۰۲–۱۴۰۵">2023–2026</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-deg" data-fa="<b>کارشناسی، مدیریت صنعتی</b> — دانشگاه سمنان، دانشکدهٔ مدیریت"><b>B.Sc., Industrial Management</b> — Semnan University, Faculty of Management</span>
+        <span class="edu-date" data-fa="۱۳۹۸–۱۴۰۲">2019–2023</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADDITIONAL ============ -->
+  <section class="sec">
+    <h2 class="sec-title" data-fa="موارد تکمیلی">Additional</h2>
+    <ul class="bullets">
+      <li data-fa="مدرس عکاسی (پاره‌وقت، ۱۳۹۹–۱۴۰۰)، دبیرستان Saheb Kosar — آموزش <strong>بیش از ۴۵ دانش‌آموز</strong> و <strong>۹۲٪ رضایت پایان دوره</strong>.">Photography Instructor (part-time, 2020–21), Saheb Kosar High School — trained <strong>45+ students</strong>, <strong>92%</strong> end-of-course satisfaction.</li>
+      <li data-fa="معرفی‌نامه از مدیران مستقیم پیشین در تمام شرکت‌ها قابل ارائه است.">References available from former direct managers across all companies.</li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var langBtn  = document.getElementById('langBtn');
+  var themeBtn = document.getElementById('themeBtn');
+  var pdfBtn   = document.getElementById('pdfBtn');
+
+  var nodes = document.querySelectorAll('[data-fa]');
+  Array.prototype.forEach.call(nodes, function (el) {
+    el.setAttribute('data-en', el.innerHTML);
+  });
+
+  /* ---------- Logo loader ---------- */
+  document.querySelectorAll('.job-logo').forEach(function (box) {
+    var img = box.querySelector('img');
+    if (!img) return;
+    var src = (img.getAttribute('data-logo') || '').trim();
+    if (!src) return;
+    img.onload  = function () { box.classList.add('has-logo'); };
+    img.onerror = function () { box.classList.remove('has-logo'); };
+    img.src = src;
+  });
+
+  var LANG_KEY = 'nk-resume-lang';
+  var THEME_KEY = 'nk-resume-theme';
+
+  function applyLang(lang) {
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+    Array.prototype.forEach.call(nodes, function (el) {
+      var value = lang === 'fa' ? el.getAttribute('data-fa') : el.getAttribute('data-en');
+      if (value !== null) { el.innerHTML = value; }
+    });
+    langBtn.textContent = lang === 'fa' ? 'English' : 'فارسی';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    themeBtn.textContent = theme === 'dark' ? '☀ Light' : '🌙 Dark';
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+
+  var savedLang = 'en', savedTheme = 'light';
+  try {
+    savedLang  = localStorage.getItem(LANG_KEY)  || 'en';
+    savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+  } catch (e) {}
+
+  applyLang(savedLang === 'fa' ? 'fa' : 'en');
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+  langBtn.addEventListener('click', function () {
+    applyLang(root.getAttribute('lang') === 'fa' ? 'en' : 'fa');
+  });
+  themeBtn.addEventListener('click', function () {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+  pdfBtn.addEventListener('click', function () { window.print(); });
+})();
+</script>
+
+</body>
+</html>
